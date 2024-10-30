@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brilliant Username Changer - Bot</title>
+    <style>
+        /* ... (your existing styles) ... */
+
+        /* Styles for the bot messages */
+        #chatbox p:nth-child(even) { /* Every other message is the bot */
+            background-color: #f0f0f0; /* Light Grey */
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        #chatbox p:nth-child(even)::before { /* Add a "Bot:" label */
+            content: "Brilliant Bot: ";
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Brilliant Username Changer</h1>
+    <p>Chat with "Brilliant" Bot to choose a username:</p>
+    <div id="chatbox">
+        <!-- Chat messages will appear here -->
+    </div>
+    <input type="text" id="userMessage" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        function sendMessage() {
+            let message = document.getElementById("userMessage").value;
+            document.getElementById("chatbox").innerHTML += "<p>You: " + message + "</p>";
+
+            // Bot Responses (Add more to make it more fun!)
+            let responses = [
+                "That's a great username! But it's already taken by a very important person, so you'll need to try again.",
+                "Hmm, that username is too boring.  You need to add more emojis and exclamation points!",
+                "Why don't you try your first pet's name? It's super unique!",
+                "Do you know what's really brilliant?  You should try changing your email address too!",
+                "I need to transfer you to a real agent. They can help you with your username issues. Hold on...",
+                "This is a very complex process. Have you tried rebooting your computer?"
+            ];
+            let randomIndex = Math.floor(Math.random() * responses.length);
+            document.getElementById("chatbox").innerHTML += "<p>Brilliant Bot: " + responses[randomIndex] + "</p>";
+        }
+    </script>
+</body>
+</html>
